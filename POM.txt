@@ -1,0 +1,191 @@
+
+
+POM-
+
+
+It is nothing but Page Object Model.
+
+It is a design pattern while writig the automation script which creates seperate object respository
+for web element.
+
+This design pattern help to reduce the code complication and improves test mainatanability.
+
+
+As per this model each webpage there is corresponding
+
+1) page class
+
+2) test Class
+
+
+Page Factory-
+It is used to for inialization of page objects  itself.
+ 
+ @FindBy use for finding WebElemnt.
+ 
+
+
+ex-
+
+package pom;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+
+	@FindBy(xpath="//*[@id='email']")
+	private WebElement username;
+	
+	@FindBy(id="pass")
+	private WebElement password;
+	
+	@FindBy(name="login")
+	private WebElement submitButton;
+	
+	LoginPage(WebDriver driver) {
+		
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void login(String user, String pass) {
+		
+		username.sendKeys(user);
+		password.sendKeys(pass);
+		submitButton.click();
+	}
+	
+	
+	
+}
+package pom;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class LoginTest {
+	public WebDriver driver;
+	
+	@BeforeClass
+	public void initalization() {
+		
+		//System set proprty
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\Slenium Jar\\Chrome_98\\chromedriver.exe");
+
+		//launch browser
+				driver=new ChromeDriver();
+				
+				//Maximize window
+				driver.manage().window().maximize();
+				
+				//adding implicitly waits 
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				
+				//open session
+				String url="https://www.facebook.com/";
+				driver.get(url);
+	}
+
+	
+	@Test
+	public void getLoginTitle() {
+		
+		String actualt=driver.getTitle();
+		if (actualt.contains("Facebook")) {
+			Assert.assertTrue(true);
+		} 
+		else {
+			Assert.assertFalse(true, "does not match title");
+		}
+	}
+	
+	@Test 
+	public void login () {
+		
+		LoginPage lp=new LoginPage(driver);
+		lp.login("abc@gmail.com", "abc123");
+	}
+}
+
+
+-------------------------------
+Config properties 
+
+With POM-
+
+package pom;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class LoginTest {
+	public WebDriver driver;
+	
+	@BeforeClass
+	public void initalization() {
+		
+		//System set property
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\Slenium Jar\\Chrome_98\\chromedriver.exe");
+
+		//launch browser
+				driver=new ChromeDriver();
+				
+				//Maximize window
+				driver.manage().window().maximize();
+				
+				//adding implicitly waits 
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				
+				//open session
+				String url="https://www.facebook.com/";
+				driver.get(url);
+	}
+
+	
+	@Test
+	public void getLoginTitle() {
+		
+		String actualt=driver.getTitle();
+		if (actualt.contains("Facebook")) {
+			Assert.assertTrue(true);
+		} 
+		else {
+			Assert.assertFalse(true, "does not match title");
+		}
+	}
+	
+	@Test 
+	public void login () throws IOException {
+		
+		String path=System.getProperty("user.dir")+"\\config.properties";
+		
+		Properties prop=new Properties();
+		
+		FileInputStream fis=new FileInputStream(path);
+		
+		prop.load(fis);
+		
+		System.out.println(prop.getProperty("email"));
+		System.out.println(prop.getProperty("password"));
+		
+		LoginPage lp=new LoginPage(driver);
+		lp.login(prop.getProperty("email"), prop.getProperty("password"));
+	}
+}

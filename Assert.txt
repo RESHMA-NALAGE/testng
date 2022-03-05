@@ -1,0 +1,70 @@
+
+
+Assertion in Test Ng-
+
+
+When we are comparing actual result with expected result we use assertion in test ng to mark
+test case pass or fail as per result.
+
+Assert is the predefine class in testng.
+
+
+Thre are two types of assert.
+
+1) Hard assert-
+
+If test case failed during assertion immidiately test case marked as fail teminate exeuction
+immidiately, this type assert is called as "Hard Assert".
+
+ex-
+ String actualTitle=driver.getTitle();
+		String expectedTitle="ExplicitlyWait Practice page in Selenium Webdriver";
+		System.out.println(actualTitle);
+		if (actualTitle.equals(expectedTitle)) {
+		Assert.assertTrue(true);}
+		else {
+			Assert.assertTrue(false);
+		}
+		System.out.println("After assert statement");
+
+
+2) Soft Assert-
+
+When we want to execute below line of code after assert failure then we go for soft Assert.
+If soft assert failed it will continue excute below line of code till the end and lastly
+it read AssertAll() and mark test case as failed.
+To execute test case even if it got failed  nad later mark as fail we use soft assert.
+
+
+ex-
+
+	  SoftAssert sa=new SoftAssert();
+	  
+	  String actualTitle=driver.getTitle();
+		String expectedTitle="ExplicitfgfgjsdflyWait Practice page in Selenium Webdriver";
+		System.out.println(actualTitle);
+		if (actualTitle.equals(expectedTitle)) {
+		sa.assertTrue(true);}
+		else {
+			sa.assertTrue(false);
+		}
+		System.out.println("After assert statement");
+		sa.assertAll();
+		
+		
+		
+assertEquls---(actual, expected)--Match--> Pass		
+
+assertEquls---(actual, expected)--No Match--> Fail	
+
+
+assertNotEquls---(actual, expected)--Match--> Fail	
+
+assertNotEquls---(actual, expected)--No Match--> Pass	
+
+
+assertFalse--(False)-->Pass
+assertFalse--(true)-->Fail
+
+assertTrue--(true)-->Pass
+assertTrue--(false)--Fail

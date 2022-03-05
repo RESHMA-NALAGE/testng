@@ -1,0 +1,143 @@
+Basic plan --> Rental plan --> 499/-
+
+Default services:
+Unlimited calls
+Unlimited SMS
+75 Gbs
+
+International call --> 1min 10 RS --> 20 mins --> 200 Rs --> Usage charge
+International calling plan --> 100 RS 25 mins --> 20 mins --> 100 RS --> value added service 
+charge
+
+pre-pay --> In case of pre-pay we track the deductions
+100RS balance
+1re/min
+
+10 mins --> 10 RS --> 100 -10 = 90 Rs
+20 mins --> 20 RS --> 90-20 = 70 RS
+
+post-pay --> In case of post-pay we track the usage
+ 1Re/min
+10 mins --> 10 RS
+20 mins --> 20 RS
+30 mins --> 30 RS
+
+10 +20 +30 = 60 RS
+
+Interconnect Billing:
+Amazon prime --> yearly --> 1499/- --> third party service provider
+Airtel --> scheme --> 999/- --> Parent service provider
+
+100/- airtel
+899/- amazon
+
+
+Company --> 200+600+100+300+50 = 1250
+
+1 --> 200
+2 --> 600
+3 --> 100
+4 --> 300
+5 --> 50
+
+Database:
+1) customerdetails
+2) rental
+3) Usage
+4) recharge
+5) VAS
+6) ThirdPartyservice
+
+400
+
+A --> pre-pay --> 1,4,5,6
+B --> post-pay --> 1,2
+C --> post-pay --> all except for 4
+
+billions
+
+recharge --> 399/- --> dispute
+
+may --> 600/-
+600 + 300(VAS) = 900 RS
+
+300 VAS --> dispute
+
+June --> 600/-
+600 -300 = 300/- --> Adjustment
+
+600*6 = 3600
+
+Dongle --> mrp 1000
+50% off
+
+1000-500 = 500
+1000
+
+999/- 11 jan --> amazon prime
+Airtel 
+
+899/- amazon --> 66 --> 
+
+A --> Unable to detect network --> network related 
+B --> Bill payment failure --> payment related
+C --> wants to add a VAS --> additional service
+
+Network inventory system:
+Highly sensitive data of every customer is stored.
+IP, IMEI
+
+10000 --> 9500 valid 500 invalid
+
+It analyzes every customer request with the data available and it decides whether the complain is valid
+or invalid.
+
+A --> 599/- --> 100 RS 50 Gbs
+B --> 499/- --> invalid --> reject
+
+Network switches:
+399/-
+56 days
+Unlimited calls
+unlimited SMS
+2 Gb /day
+
+399/-
+40 days
+Unlimited calls
+unlimited SMS
+1 Gb /day
+
+Mediation:
+20th of last month - 19 th of current month --> usage tracking
+20 th of current monthh --> Amount calculation is done
+21st of current month --> bill is delivered
+
+call, sms, data, I call, VAS, Third party service, Usage
+CDR --> call detail record
+
+20 sept - 19 oct --> cycle1
+20 oct - 19 nov --> cycle2
+20 nov - 19 dec --> cycle3
+
+1 jan -->
+
+1 jan - 19 jan
+20 jan - 19 feb
+
+pre-pay:
+28 days
+72 days
+5 days
+
+
+
+
+
+
+
+
+
+
+
+
